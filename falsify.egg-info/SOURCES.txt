@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+falsify/__init__.py
+falsify/__main__.py
+falsify/cli.py
+falsify/jcs.py
+falsify/mutants.py
+falsify/record.py
+falsify.egg-info/PKG-INFO
+falsify.egg-info/SOURCES.txt
+falsify.egg-info/dependency_links.txt
+falsify.egg-info/entry_points.txt
+falsify.egg-info/requires.txt
+falsify.egg-info/top_level.txt
