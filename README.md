@@ -88,6 +88,27 @@ against their golden hashes, runs all mutants, checks the format boundaries, the
 link, the expected-key path and the package hygiene (no private key, no network, no
 dependency on the repository it came from). Current state: **36/36**.
 
+### A worked defect, not a promise
+
+`docs/DEMO_CASE.md` is one real defect packed the way a buyer can rerun it: a
+record with its hash recomputed and its signature re-made, but without
+`timestamp` and `payload`, was accepted as `verified_pass`. Five criteria, three
+runs, signed evidence:
+
+```
+python3 tests/demo_required_fields.py     # rc 0 = defect closed, rc 1 = reproduced
+```
+
+| state | demo test | full suite |
+|---|---|---|
+| before fix (tag `demo-pre-fix`) | `verified_pass`, rc 1 | 36/36 |
+| after fix | `verified_fail`, rc 0 | 36/36 |
+| after rollback | `verified_pass`, rc 1 | 36/36 |
+
+The three suite outputs are byte-identical (`bcf2fb0c0255a819…`), so «nothing
+else changed» is measured, not asserted. Bundle: `evidence/evidence.json`,
+Ed25519 signature beside it, verified by separate code.
+
 ## Scope
 
 v1 handles one format. No network, no server, no accounts, no DSSE/COSE/JWS, no GUI.
