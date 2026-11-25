@@ -30,6 +30,11 @@ KNOWN_VERSIONS = (None, "canon_v1", "canon_v1.3")
 
 UNSIGNED_BY_DESIGN = ("ts_human",)
 
+# Полнота записи. Без timestamp запись не утверждает, КОГДА произошла (ts_human
+# лежит вне подписи), без payload — не утверждает, ЧТО произошло. Отсутствие
+# поля нельзя читать как согласие: проверка обязана назвать его вслух.
+REQUIRED_FIELDS = ("timestamp", "payload")
+
 PASS, FAIL, SKIP = "pass", "fail", "skip"
 
 
@@ -78,6 +83,12 @@ def verify(rec, expect_pubkey=None, prev_record=None):
         "version", PASS if version_known else FAIL,
         "версия %r" % (version,) if version_known
         else "неизвестная canonicalization_version %r: нет правил проверки, не угадываю" % (version,)))
+
+    missing = [f for f in REQUIRED_FIELDS if f not in rec]
+    checks.append(_check(
+        "required", PASS if not missing else FAIL,
+        "обязательные поля на месте" if not missing
+        else "отсутствуют обязательные поля: %s" % ", ".join(missing)))
 
     computed = None
     try:
