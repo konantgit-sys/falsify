@@ -1,0 +1,78 @@
+{
+ "case": "required-fields: запись без timestamp и payload обязана быть отклонена",
+ "spec": "docs/DEMO_CASE.md",
+ "criteria": 5,
+ "env": {
+  "python": "3.11.2",
+  "dependencies": "cryptography 50.0.2",
+  "dependency_lock_sha256": "03796fbe79fb944c51ef125a419165780f1930ded205568de46b66475dcd9afd",
+  "os_image": "Linux-6.12.85+deb13-amd64-x86_64-with-glibc2.36 | Debian GNU/Linux 12 (bookworm)",
+  "harness": "tests/run_tests.py + tests/demo_required_fields.py"
+ },
+ "git": {
+  "head": "c901d6e24769f7b750f0c6a8d63f7886b27e0144",
+  "tag_pre_fix": "75fe2bc63f449ef1984d94a817bc6f165b1dfec0",
+  "subject": "демо-кейс шаг 2: фикс — REQUIRED_FIELDS и проверка полноты в verify, 36/36 сохранено"
+ },
+ "runs": [
+  {
+   "label": "before_fix",
+   "path": "/home/agent/data/projects/falsify/evidence/runs/before_fix_demo.txt",
+   "present": true,
+   "bytes": 671,
+   "sha256": "011eafa8f172276261268d0468534315b5a2312318240e239436634a412e7fc7",
+   "rc": 1,
+   "verdict": "verified_pass",
+   "recorded_at_utc": "2026-11-25T04:30:52Z"
+  },
+  {
+   "label": "after_fix",
+   "path": "/home/agent/data/projects/falsify/evidence/runs/after_fix_demo.txt",
+   "present": true,
+   "bytes": 734,
+   "sha256": "5cda98ea48e5035a4601bd057c86d777cca6098eb8e40ed391682b6064688f76",
+   "rc": 0,
+   "verdict": "verified_fail",
+   "recorded_at_utc": "2026-11-25T04:30:52Z"
+  },
+  {
+   "label": "after_rollback",
+   "path": "/home/agent/data/projects/falsify/evidence/runs/after_rollback_demo.txt",
+   "present": true,
+   "bytes": 671,
+   "sha256": "011eafa8f172276261268d0468534315b5a2312318240e239436634a412e7fc7",
+   "rc": 1,
+   "verdict": "verified_pass",
+   "recorded_at_utc": "2026-11-25T04:30:52Z"
+  },
+  {
+   "label": "suite_before_fix",
+   "path": "/home/agent/data/projects/falsify/evidence/runs/before_fix_suite.txt",
+   "present": true,
+   "bytes": 3715,
+   "sha256": "bcf2fb0c0255a819ffcb2ae0cea0cb34599433bae1ebd92d1afde66361197702",
+   "rc": 0,
+   "verdict": "",
+   "recorded_at_utc": "2026-11-25T04:30:52Z"
+  },
+  {
+   "label": "suite_after_rollback",
+   "path": "/home/agent/data/projects/falsify/evidence/runs/after_rollback_suite.txt",
+   "present": true,
+   "bytes": 3715,
+   "sha256": "bcf2fb0c0255a819ffcb2ae0cea0cb34599433bae1ebd92d1afde66361197702",
+   "rc": 0,
+   "verdict": "",
+   "recorded_at_utc": "2026-11-25T04:30:52Z"
+  }
+ ],
+ "collected_at_utc": "2026-11-25T04:30:52Z",
+ "unrelated_fixtures_sha256_equal": true,
+ "unrelated_sha256": "bcf2fb0c0255a819ffcb2ae0cea0cb34599433bae1ebd92d1afde66361197702",
+ "signature": {
+  "alg": "Ed25519",
+  "over": "sha256-free JCS-каноника бандла без поля signature",
+  "signature_hex": "224df815494bf67560b4fe2a1ce24c9c8fd1d8ece6ee3064bae4673b512f492f79307b15121b8e6d3fc7b792d0168d314ee6a2eb93207674baddf2806cf1090a",
+  "public_key_hex": "1aefd5f8ee22d0d5e9a60dded21803396252b7f2aecdb6855ff11f2fcb075b61"
+ }
+}

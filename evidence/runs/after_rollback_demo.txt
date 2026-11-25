@@ -1,0 +1,8 @@
+== демо-кейс: обязательные поля записи
+  отсутствует      : timestamp, payload
+  verdict          : verified_pass
+  checks           : version pass, numbers pass, hash pass, signature pass
+  причиной названы : —
+  дайджест окружения: {"python": "3.11.2", "dependencies": "cryptography 50.0.2", "dependency_lock_sha256": "03796fbe79fb944c51ef125a419165780f1930ded205568de46b66475dcd9afd", "os_image": "Linux-6.12.85+deb13-amd64-x86_64-with-glibc2.36 | Debian GNU/Linux 12 (bookworm)"}
+
+УТВЕРЖДЕНИЕ ЛОЖНО: запись без timestamp, payload принята как verified_pass.

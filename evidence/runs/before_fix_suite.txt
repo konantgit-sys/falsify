@@ -1,0 +1,51 @@
+== эталонные записи (4)
+  PASS  fc78d8f7-huilai-first: проходит                verified_pass
+  PASS  fc78d8f7-huilai-first: хеш совпал с эталонным ядром fc78d8f7b74ac69d…
+  PASS  fc78d8f7-huilai-first: объявленный хеш = пересчитанный fc78d8f7b74ac69d…
+  PASS  d2764084-v2agent-first: проходит               verified_pass
+  PASS  d2764084-v2agent-first: хеш совпал с эталонным ядром d2764084fd073878…
+  PASS  d2764084-v2agent-first: объявленный хеш = пересчитанный d2764084fd073878…
+  PASS  f2aa74a5-huilai-cell5: проходит                verified_pass
+  PASS  f2aa74a5-huilai-cell5: хеш совпал с эталонным ядром f2aa74a5d3a36d48…
+  PASS  f2aa74a5-huilai-cell5: объявленный хеш = пересчитанный f2aa74a5d3a36d48…
+  PASS  93b2d484-v2agent-cell6: проходит               verified_pass
+  PASS  93b2d484-v2agent-cell6: хеш совпал с эталонным ядром 93b2d484bb30efb8…
+  PASS  93b2d484-v2agent-cell6: объявленный хеш = пересчитанный 93b2d484bb30efb8…
+
+== мутанты
+  PASS  fc78d8f7-huilai-first: проверка ломается там, где обязана сломанные: нет
+  PASS  fc78d8f7-huilai-first: все «должны упасть» упали 6/6
+  PASS  fc78d8f7-huilai-first: все «должны пройти» прошли 1/1
+  PASS  d2764084-v2agent-first: проверка ломается там, где обязана сломанные: нет
+  PASS  d2764084-v2agent-first: все «должны упасть» упали 6/6
+  PASS  d2764084-v2agent-first: все «должны пройти» прошли 1/1
+  PASS  f2aa74a5-huilai-cell5: проверка ломается там, где обязана сломанные: нет
+  PASS  f2aa74a5-huilai-cell5: все «должны упасть» упали 7/7
+  PASS  f2aa74a5-huilai-cell5: все «должны пройти» прошли 2/2
+  PASS  93b2d484-v2agent-cell6: проверка ломается там, где обязана сломанные: нет
+  PASS  93b2d484-v2agent-cell6: все «должны упасть» упали 7/7
+  PASS  93b2d484-v2agent-cell6: все «должны пройти» прошли 2/2
+
+== границы формата (должны вести себя именно так)
+  PASS  ts_human +4 дня → PASS (метка вне подписи)     pass
+  PASS  unix_tick +1 с → FAIL                          fail
+  PASS  unix_tz смена → FAIL (иначе метка врёт)        fail
+
+== незнакомая версия каноники
+  PASS  неизвестная версия → FAIL, а не «угадать»      verified_fail
+  PASS  причина названа                                
+
+== связь с предыдущей записью
+  PASS  цепь: связь с f2aa74a5 сходится                
+  PASS  цепь: подменённая ссылка → FAIL                
+
+== ожидаемый ключ
+  PASS  свой ключ → PASS                               verified_pass
+  PASS  чужой ключ → FAIL                              verified_fail
+
+== гигиена пакета
+  PASS  не читает приватный ключ                       по исходникам пакета
+  PASS  не ходит в сеть                                ни одного импорта сети
+  PASS  не зависит от colony-dash                      импортов нет
+
+36/36 проверок пройдено
